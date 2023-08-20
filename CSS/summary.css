@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: 'inter';
 }
-/* "media/images/Frame 2 (2).png" */
 
 body {
   background-color: white;
@@ -10,27 +10,87 @@ body {
 
   align-items: center;
   flex-direction: column;
-  gap: 100px;
+  z-index: 0;
+  overflow-x: hidden;
 }
 
+h2 {
+  font-family: 'Inconsolata';
+}
+p {
+  font-family: 'Inconsolata';
+}
+
+a {
+  font-family: 'Inconsolata';
+}
+
+@keyframes pulsate {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  3% {
+    transform: scale(1);
+  }
+  4% {
+    transform: scale(1.2);
+  }
+  5% {
+    transform: scale(1);
+  }
+}
+
+.small-ball {
+  background-color: rgb(104, 99, 99);
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  position: absolute;
+  /* top: 520px;
+  left: 180px; */
+  animation: pulsate 30s ease-in-out infinite;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.smaller-ball {
+  background-color: rgb(62, 57, 57);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 450px;
+  left: 310px;
+  animation: pulsate 20s ease-in-out 5s infinite;
+}
 .slider-container {
   overflow: hidden;
   width: 100%;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .slider {
-  background: url('media/images/slider.png') repeat-x;
-  width: 4197px; /* The image width times 3 */
+  background: url('../media/images/slidah.png') repeat-x;
+  width: 3966px; /* img width times 3*/
   height: 265px;
+  animation: roll 10s linear infinite;
 }
 
-body:last-child {
-  margin-bottom: 400px;
+@keyframes roll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-1322px, 0, 0); /* img width */
+  }
 }
 
 .row {
   display: flex;
   gap: 200px;
+  margin: 0 100px;
 }
 
 .main-card {
@@ -38,7 +98,7 @@ body:last-child {
   flex-direction: row;
   background-color: white;
   width: 70%;
-  margin: 0 auto;
+  margin: 50px auto 100px auto;
   padding: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -65,7 +125,8 @@ body:last-child {
   flex-direction: column;
   gap: 10px;
   background-color: white;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0 auto 50px;
+  padding: 40px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 25%;
 }
