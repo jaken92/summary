@@ -3,7 +3,9 @@
   margin: 0;
   font-family: 'inter';
 }
-
+html {
+  overflow-x: hidden;
+}
 body {
   background-color: white;
   display: flex;
@@ -24,6 +26,7 @@ p {
 
 a {
   font-family: 'Inconsolata';
+  color: black;
 }
 
 @keyframes pulsate {
@@ -51,6 +54,7 @@ a {
   animation: pulsate 30s ease-in-out infinite;
   z-index: -1;
   opacity: 0.3;
+  overflow: hidden;
 }
 
 .smaller-ball {
@@ -215,7 +219,7 @@ a {
   }
 
   .slider {
-    background: url('../media/images/sliderwfontsmall.png') repeat-x;
+    background: url('../media/images/sliderwfontsmall2.jpg') repeat-x;
     width: 1983px; /* img width times 3*/
     height: 132px;
     animation: roll 10s linear infinite;

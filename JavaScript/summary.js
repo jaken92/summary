@@ -40,36 +40,39 @@ const grayscaleColors = [
 
 const body = document.querySelector('body');
 const html = document.documentElement;
+const viewportWidth = document.documentElement.clientWidth;
 
 for (let i = 0; i < 80; i++) {
-  const xball = document.createElement('div');
-  xball.classList.add('small-ball');
+  const size = 30 + Math.random() * 120;
 
-  const randomLeftPercentage = Math.random() * 100 - 3;
-  xball.style.left = randomLeftPercentage + '%';
+  const offsetLeft = Math.random() * viewportWidth;
 
-  const height = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    html.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight
-  );
+  if (offsetLeft + size <= viewportWidth) {
+    const xball = document.createElement('div');
+    xball.style.height = size + 'px';
+    xball.style.width = size + 'px';
+    xball.style.left = offsetLeft + 'px';
+    xball.classList.add('small-ball');
 
-  const randomOffset = Math.random() * height;
-  xball.style.top = randomOffset + 'px';
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
 
-  xball.style.animationDelay = Math.random() * 30 + 's';
+    const randomOffset = Math.random() * height;
+    xball.style.top = randomOffset + 'px';
 
-  const size = 30 + Math.random() * (150 - 30);
-  xball.style.height = size + 'px';
-  xball.style.width = size + 'px';
+    xball.style.animationDelay = Math.random() * 30 + 's';
 
-  const randomIndex = Math.floor(Math.random() * grayscaleColors.length);
+    const randomIndex = Math.floor(Math.random() * grayscaleColors.length);
 
-  const randomColor = grayscaleColors[randomIndex];
+    const randomColor = grayscaleColors[randomIndex];
 
-  xball.style.backgroundColor = randomColor;
+    xball.style.backgroundColor = randomColor;
 
-  body.appendChild(xball);
+    body.appendChild(xball);
+  }
 }
